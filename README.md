@@ -267,7 +267,14 @@ Possible examples include:
 * Good
 * Sorry
 * Please
+and sentences like
+1) person 1: hi, how are you?
+2) person 2: hi, im fine.
+3) person 1: thankyou
+4) person 2: i miss you
+5) person 1: byee
 
+where there is transcription of the text going, it should be in the form of diaglogues with names, and tranlation available.
 > These labels should only be presented as supported signs after they have been validated with the project's actual recognition pipeline.
 
 MediaPipe's built-in gesture categories are **not treated as complete Indian Sign Language recognition**.
