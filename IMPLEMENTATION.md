@@ -6,13 +6,13 @@ Implement the core MVP of Ishara as a working 24-hour hackathon prototype.
 
 The MVP must provide:
 
-* 1:1 video calling
-* Side-by-side local and remote text panels
-* Recognition of 5–8 isolated static hand signs
-* Speech-to-text using the Web Speech API
-* A practice module that reuses the same recognition pipeline
-* Optional throttled Gemini fallback
-* Basic progress, badges, and leaderboard functionality through an optional backend
+- 1:1 video calling
+- Side-by-side local and remote text panels
+- Recognition of 5–8 isolated static hand signs
+- Speech-to-text using the Web Speech API
+- A practice module that reuses the same recognition pipeline
+- Optional throttled Gemini fallback
+- Basic progress, badges, and leaderboard functionality through an optional backend
 
 The implementation must remain within the approved client-first architecture and must prioritize a reliable working demo over feature expansion.
 
@@ -28,41 +28,41 @@ The implementation is based on the following inputs:
 
 The architecture defines:
 
-* Client-side MediaPipe processing
-* Local landmark classifier as the primary recognition mechanism
-* WebRTC-based communication
-* Web Speech API for speech recognition
-* Gemini as an optional fallback
-* Optional Express backend
-* Optional MongoDB persistence
+- Client-side MediaPipe processing
+- Local landmark classifier as the primary recognition mechanism
+- WebRTC-based communication
+- Web Speech API for speech recognition
+- Gemini as an optional fallback
+- Optional Express backend
+- Optional MongoDB persistence
 
 ### Project Context
 
 The implementation must respect:
 
-* Limited sign vocabulary
-* Isolated static signs only
-* 1:1 communication
-* Graceful degradation
-* 24-hour hackathon constraints
+- Limited sign vocabulary
+- Isolated static signs only
+- 1:1 communication
+- Graceful degradation
+- 24-hour hackathon constraints
 
 ### Technology Sources
 
 Potential implementation references include:
 
-* MediaPipe Hand Landmarker examples
-* TensorFlow.js landmark classification examples
-* Browser Web Speech API
-* WebRTC / Stream / PeerJS documentation
+- MediaPipe Hand Landmarker examples
+- TensorFlow.js landmark classification examples
+- Browser Web Speech API
+- WebRTC / Stream / PeerJS documentation
 
 ### Infrastructure Constraints
 
 The implementation should remain compatible with free or low-cost services where possible:
 
-* Gemini free tier
-* Stream / PeerJS
-* Vercel
-* MongoDB Atlas
+- Gemini free tier
+- Stream / PeerJS
+- Vercel
+- MongoDB Atlas
 
 ---
 
@@ -105,14 +105,14 @@ The implementation must support:
 
 The implementation must satisfy the following:
 
-* MediaPipe Hand Landmarker runs entirely inside the browser.
-* The local classifier operates on the extracted 21 hand landmarks.
-* The local classifier is the primary recognition mechanism.
-* Gemini is used only when local confidence is low and the throttle permits a request.
-* Recognized text travels through the WebRTC data channel or selected equivalent messaging mechanism.
-* Raw video frames do not leave the client on the primary recognition path.
-* Practice mode reuses the same classifier used by the communication mode.
-* Optional backend functionality remains outside the core media and recognition path.
+- MediaPipe Hand Landmarker runs entirely inside the browser.
+- The local classifier operates on the extracted 21 hand landmarks.
+- The local classifier is the primary recognition mechanism.
+- Gemini is used only when local confidence is low and the throttle permits a request.
+- Recognized text travels through the WebRTC data channel or selected equivalent messaging mechanism.
+- Raw video frames do not leave the client on the primary recognition path.
+- Practice mode reuses the same classifier used by the communication mode.
+- Optional backend functionality remains outside the core media and recognition path.
 
 ---
 
@@ -122,18 +122,18 @@ The following constraints are mandatory.
 
 ### Scope
 
-* No continuous signing.
-* No full ISL sentence translation.
-* Vocabulary limited to 8 validated static signs or fewer.
-* No major architecture changes.
-* No unnecessary heavy dependencies.
+- No continuous signing.
+- No full ISL sentence translation.
+- Vocabulary limited to 8 validated static signs or fewer.
+- No major architecture changes.
+- No unnecessary heavy dependencies.
 
 ### Infrastructure
 
-* The application should remain deployable on Vercel free tier.
-* Gemini must remain optional.
-* The backend must remain optional.
-* The core communication experience must not depend on Gemini or database availability.
+- The application should remain deployable on Vercel free tier.
+- Gemini must remain optional.
+- The backend must remain optional.
+- The core communication experience must not depend on Gemini or database availability.
 
 ### Reliability
 
@@ -335,9 +335,9 @@ Low-confidence predictions may enter the optional Gemini fallback path.
 
 To reduce landmark jitter:
 
-* Maintain a short prediction history.
-* Use a majority vote over approximately 5–8 frames.
-* Emit only a stable prediction.
+- Maintain a short prediction history.
+- Use a majority vote over approximately 5–8 frames.
+- Emit only a stable prediction.
 
 ## Deliverable
 
@@ -555,11 +555,11 @@ If a suitable cached result exists, no new Gemini request should be made.
 
 If Gemini:
 
-* Times out
-* Returns an error
-* Returns HTTP 429
-* Is unavailable
-* Exceeds the throttle
+- Times out
+- Returns an error
+- Returns HTTP 429
+- Is unavailable
+- Exceeds the throttle
 
 the application must fall back to the local classifier.
 
@@ -596,10 +596,10 @@ This phase should only be implemented after the core communication experience is
 
 ## Backend Responsibilities
 
-* Room management
-* Progress storage
-* Badge storage
-* Leaderboard data
+- Room management
+- Progress storage
+- Badge storage
+- Leaderboard data
 
 ## Suggested Endpoints
 
@@ -615,10 +615,10 @@ This phase should only be implemented after the core communication experience is
 
 The backend must not process:
 
-* Webcam frames
-* Video
-* Audio
-* Hand landmarks
+- Webcam frames
+- Video
+- Audio
+- Hand landmarks
 
 ## Expected Flow
 
@@ -646,22 +646,22 @@ Make the application suitable for a live hackathon demonstration.
 
 ### UI
 
-* Clear video layout
-* Clear local and remote text panels
-* Recognition status
-* Confidence indication
-* Connection status
-* Practice feedback
-* Error states
-* Loading states
+- Clear video layout
+- Clear local and remote text panels
+- Recognition status
+- Confidence indication
+- Connection status
+- Practice feedback
+- Error states
+- Loading states
 
 ### Accessibility
 
-* High-contrast interface
-* Clear labels
-* Keyboard-friendly controls where practical
-* Screen-reader labels where practical
-* Avoid relying only on color to communicate state
+- High-contrast interface
+- Clear labels
+- Keyboard-friendly controls where practical
+- Screen-reader labels where practical
+- Avoid relying only on color to communicate state
 
 ### User Guidance
 
@@ -673,11 +673,11 @@ Chrome recommended for best speech recognition support.
 
 Provide clear instructions for:
 
-* Camera permissions
-* Microphone permissions
-* Hand positioning
-* Supported signs
-* Practice mode
+- Camera permissions
+- Microphone permissions
+- Hand positioning
+- Supported signs
+- Practice mode
 
 ---
 
@@ -729,9 +729,9 @@ The exact UI behavior may depend on the final classifier implementation.
 ## Gemini Failure
 
 Gemini Error
-     ↓
+↓
 Ignore Fallback Failure
-     ↓
+↓
 Continue With Local Classifier
 
 The user should not lose the core recognition functionality.
@@ -743,9 +743,9 @@ The user should not lose the core recognition functionality.
 If the data channel is not open:
 
 Recognized Text
-      ↓
+↓
 Data Channel Unavailable
-      ↓
+↓
 Queue Message / Show Connecting State
 
 The implementation should prevent crashes caused by attempting to send through an unavailable channel.
@@ -755,15 +755,14 @@ The implementation should prevent crashes caused by attempting to send through a
 ## Web Speech API Unsupported
 
 Feature Detection
-      ↓
+↓
 Unsupported
-      ↓
+↓
 Disable Speech Controls
-      ↓
+↓
 Show Explanation
 
 Other Ishara functionality continues normally.
-
 
 # 18. File Structure
 
@@ -771,32 +770,32 @@ Other Ishara functionality continues normally.
 
 src/
 ├── hooks/
-│   ├── useMediaPipe.js
-│   ├── useLocalClassifier.js
-│   ├── useSpeechRecognition.js
-│   └── useWebRTC.js
+│ ├── useMediaPipe.js
+│ ├── useLocalClassifier.js
+│ ├── useSpeechRecognition.js
+│ └── useWebRTC.js
 │
 ├── lib/
-│   ├── classifier/
-│   │   └── index.js
-│   │
-│   ├── gemini/
-│   │   ├── client.js
-│   │   ├── throttle.js
-│   │   └── cache.js
-│   │
-│   └── constants.js
+│ ├── classifier/
+│ │ └── index.js
+│ │
+│ ├── gemini/
+│ │ ├── client.js
+│ │ ├── throttle.js
+│ │ └── cache.js
+│ │
+│ └── constants.js
 │
 ├── components/
-│   ├── VideoCall/
-│   │   ├── VideoCall.jsx
-│   │   ├── LocalVideo.jsx
-│   │   ├── RemoteVideo.jsx
-│   │   └── TextPanel.jsx
-│   │
-│   └── Practice/
-│       ├── Practice.jsx
-│       └── SignTarget.jsx
+│ ├── VideoCall/
+│ │ ├── VideoCall.jsx
+│ │ ├── LocalVideo.jsx
+│ │ ├── RemoteVideo.jsx
+│ │ └── TextPanel.jsx
+│ │
+│ └── Practice/
+│ ├── Practice.jsx
+│ └── SignTarget.jsx
 
 ## Application Files
 
@@ -810,9 +809,6 @@ server/
 ├── routes/
 ├── models/
 └── index.js
-
-
-
 
 # 19. Files to Create or Modify
 
@@ -874,10 +870,10 @@ Small changes in hand position can produce unstable predictions.
 
 Use:
 
-* Landmark normalization
-* Temporal smoothing
-* Majority voting
-* Confidence thresholds
+- Landmark normalization
+- Temporal smoothing
+- Majority voting
+- Confidence thresholds
 
 ---
 
@@ -891,10 +887,10 @@ Frequent API calls can exhaust the available quota.
 
 Use:
 
-* Local classifier as primary
-* Confidence gating
-* Minimum 1.5-second interval
-* Short-term caching
+- Local classifier as primary
+- Confidence gating
+- Minimum 1.5-second interval
+- Short-term caching
 
 ---
 
@@ -946,11 +942,11 @@ If required, reduce the supported vocabulary rather than compromising the comple
 
 Continuous signing requires significantly more:
 
-* Training data
-* Temporal modeling
-* Model development
-* Testing
-* Validation
+- Training data
+- Temporal modeling
+- Model development
+- Testing
+- Validation
 
 It is outside the 24-hour MVP scope.
 
@@ -962,10 +958,10 @@ It is outside the 24-hour MVP scope.
 
 Reasons:
 
-* Increased latency
-* Infrastructure requirements
-* Higher cost
-* Privacy concerns
+- Increased latency
+- Infrastructure requirements
+- Higher cost
+- Privacy concerns
 
 ---
 
@@ -975,11 +971,11 @@ Reasons:
 
 Reasons:
 
-* Rate limits
-* External dependency
-* Latency
-* Cost
-* Reduced demo reliability
+- Rate limits
+- External dependency
+- Latency
+- Cost
+- Reduced demo reliability
 
 Gemini remains a fallback rather than the primary recognition mechanism.
 
@@ -1009,83 +1005,78 @@ If the project falls behind schedule, implementation priority must be:
 
 Priority 1
 1:1 Video Call
-      ↓
+↓
 Priority 2
 WebRTC Data Channel
-      ↓
+↓
 Priority 3
 MediaPipe
-      ↓
+↓
 Priority 4
 Local Sign Classifier
-      ↓
+↓
 Priority 5
 Remote Text
-      ↓
+↓
 Priority 6
 Speech-to-Text
-      ↓
+↓
 Priority 7
 Practice Mode
-      ↓
+↓
 Priority 8
 Gemini Fallback
-      ↓
+↓
 Priority 9
 Backend / Leaderboard
-      ↓
+↓
 Priority 10
 Polish
-
 
 The optional backend should be dropped before compromising the core communication experience.
 
 Gemini should also be dropped before compromising the local recognition pipeline.
 
-
 # 25. Definition of Done
 
 The core MVP is considered implemented when:
 
-* Two browsers can establish a 1:1 video call.
-* Both participants can see the remote video.
-* The data channel can transmit JSON messages.
-* MediaPipe detects hand landmarks locally.
-* The local classifier recognizes the supported vocabulary.
-* Stable predictions are generated with confidence values.
-* Sign text appears locally.
-* Sign text reaches the remote participant.
-* Speech recognition produces transcripts where supported.
-* Speech transcripts reach the remote participant.
-* Practice mode uses the same classifier.
-* Practice results can be scored.
-* Gemini can be disabled without breaking the application.
-* Backend functionality can be disabled without breaking the core application.
-* Camera and microphone permission errors are handled.
-* No-hand and low-confidence states are handled.
-* The application can be demonstrated under controlled conditions.
-
-
+- Two browsers can establish a 1:1 video call.
+- Both participants can see the remote video.
+- The data channel can transmit JSON messages.
+- MediaPipe detects hand landmarks locally.
+- The local classifier recognizes the supported vocabulary.
+- Stable predictions are generated with confidence values.
+- Sign text appears locally.
+- Sign text reaches the remote participant.
+- Speech recognition produces transcripts where supported.
+- Speech transcripts reach the remote participant.
+- Practice mode uses the same classifier.
+- Practice results can be scored.
+- Gemini can be disabled without breaking the application.
+- Backend functionality can be disabled without breaking the core application.
+- Camera and microphone permission errors are handled.
+- No-hand and low-confidence states are handled.
+- The application can be demonstrated under controlled conditions.
 
 # 26. Final Implementation Principle
 
 The implementation must preserve the central architectural rule:
-                 CORE
-                  │
-       ┌──────────┴──────────┐
-       │                     │
-   Client-side           Peer-to-peer
-   Recognition           Communication
-       │                     │
-       └──────────┬──────────┘
-                  │
-            Working MVP
-                  │
-       ┌──────────┴──────────┐
-       │                     │
-    Gemini               Backend
-   Optional             Optional
-
+CORE
+│
+┌──────────┴──────────┐
+│ │
+Client-side Peer-to-peer
+Recognition Communication
+│ │
+└──────────┬──────────┘
+│
+Working MVP
+│
+┌──────────┴──────────┐
+│ │
+Gemini Backend
+Optional Optional
 
 The primary system must remain functional without Gemini, without the backend, and without server-side recognition.
 

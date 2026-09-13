@@ -6,13 +6,13 @@ Verify that the Ishara MVP implementation is ready for hackathon demonstration.
 
 The verification process confirms that the implementation:
 
-* Satisfies the defined functional requirements
-* Follows the approved system architecture
-* Handles defined edge cases
-* Maintains the required security and privacy boundaries
-* Provides acceptable performance for the prototype
-* Remains within the 24-hour hackathon scope
-* Degrades gracefully when optional services are unavailable
+- Satisfies the defined functional requirements
+- Follows the approved system architecture
+- Handles defined edge cases
+- Maintains the required security and privacy boundaries
+- Provides acceptable performance for the prototype
+- Remains within the 24-hour hackathon scope
+- Degrades gracefully when optional services are unavailable
 
 ---
 
@@ -144,14 +144,14 @@ It should not be interpreted as a production-scale architecture.
 
 The verification assumes:
 
-* Users run a modern Chromium-based browser.
-* Camera and microphone permissions are available.
-* The demonstration occurs under reasonable lighting.
-* The user's hand remains clearly visible to the camera.
-* Network conditions permit basic WebRTC connectivity.
-* TURN is available if direct peer-to-peer connectivity is unavailable.
-* The supported vocabulary remains fixed at 5–8 static signs.
-* Gemini remains optional because local recognition is always available.
+- Users run a modern Chromium-based browser.
+- Camera and microphone permissions are available.
+- The demonstration occurs under reasonable lighting.
+- The user's hand remains clearly visible to the camera.
+- Network conditions permit basic WebRTC connectivity.
+- TURN is available if direct peer-to-peer connectivity is unavailable.
+- The supported vocabulary remains fixed at 5–8 static signs.
+- Gemini remains optional because local recognition is always available.
 
 These assumptions are consistent with the approved prototype scope.
 
@@ -204,10 +204,10 @@ For every supported sign:
 
 Test the application with:
 
-* Missing Gemini key
-* Invalid Gemini configuration
-* Simulated timeout
-* Rate-limit response
+- Missing Gemini key
+- Invalid Gemini configuration
+- Simulated timeout
+- Rate-limit response
 
 Expected result:
 
@@ -225,15 +225,15 @@ Application remains usable
 
 Deny:
 
-* Camera permission
-* Microphone permission
+- Camera permission
+- Microphone permission
 
 Confirm that the application:
 
-* Displays a clear error
-* Provides a retry path
-* Does not crash
-* Keeps unrelated functionality available where possible
+- Displays a clear error
+- Provides a retry path
+- Does not crash
+- Keeps unrelated functionality available where possible
 
 ---
 
@@ -259,10 +259,10 @@ Temporarily interrupt the network connection.
 
 Verify:
 
-* Connection state is visible.
-* Messages are not sent through a closed channel.
-* The application does not crash.
-* Communication can recover when connectivity returns where supported.
+- Connection state is visible.
+- Messages are not sent through a closed channel.
+- The application does not crash.
+- Communication can recover when connectivity returns where supported.
 
 ---
 
@@ -286,11 +286,11 @@ If the backend is disabled, confirm that the core application remains usable.
 
 Recognition accuracy may decrease under:
 
-* Poor lighting
-* Extreme hand angles
-* Partial hand visibility
-* Fast movement
-* Camera quality limitations
+- Poor lighting
+- Extreme hand angles
+- Partial hand visibility
+- Fast movement
+- Camera quality limitations
 
 **Mitigation:** Conduct the demonstration under controlled conditions.
 
@@ -300,10 +300,10 @@ Recognition accuracy may decrease under:
 
 Web Speech API accuracy may vary because of:
 
-* Accent
-* Background noise
-* Microphone quality
-* Browser support
+- Accent
+- Background noise
+- Microphone quality
+- Browser support
 
 **Mitigation:** Use a supported Chromium browser and a relatively quiet demonstration environment.
 
@@ -331,10 +331,10 @@ The following improvements are intentionally outside the MVP verification scope.
 
 ### Recognition
 
-* Collect a small labeled landmark dataset.
-* Replace the distance-based classifier with a small on-device model.
-* Improve per-sign accuracy.
-* Add more carefully validated signs.
+- Collect a small labeled landmark dataset.
+- Replace the distance-based classifier with a small on-device model.
+- Improve per-sign accuracy.
+- Add more carefully validated signs.
 
 ### Prediction Stability
 
@@ -344,10 +344,10 @@ Extract temporal smoothing into a dedicated reusable utility.
 
 Improve:
 
-* Keyboard navigation
-* ARIA labels
-* High-contrast themes
-* Screen-reader support
+- Keyboard navigation
+- ARIA labels
+- High-contrast themes
+- Screen-reader support
 
 ### Evaluation
 
@@ -396,16 +396,16 @@ The Ishara implementation satisfies the defined MVP requirements and follows the
 
 The verification confirms that:
 
-* 1:1 communication is functional.
-* Isolated sign recognition works for the fixed vocabulary.
-* Recognized signs can be exchanged as text.
-* Speech can be converted to text and transmitted.
-* Practice mode reuses the same recognition pipeline.
-* Gemini remains an optional fallback.
-* The core application does not depend on the backend.
-* Defined edge cases have handling paths.
-* Raw video remains local on the primary recognition path.
-* The implementation remains within the intended 24-hour prototype scope.
+- 1:1 communication is functional.
+- Isolated sign recognition works for the fixed vocabulary.
+- Recognized signs can be exchanged as text.
+- Speech can be converted to text and transmitted.
+- Practice mode reuses the same recognition pipeline.
+- Gemini remains an optional fallback.
+- The core application does not depend on the backend.
+- Defined edge cases have handling paths.
+- Raw video remains local on the primary recognition path.
+- The implementation remains within the intended 24-hour prototype scope.
 
 No blocking issues remain for the hackathon demonstration under the stated controlled conditions.
 

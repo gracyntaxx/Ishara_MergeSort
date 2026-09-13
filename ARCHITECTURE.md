@@ -8,13 +8,13 @@ It enables two participants to exchange text derived from a small fixed vocabula
 
 ### Core Design Principles
 
-* Client-side recognition for low latency and privacy
-* Isolated-sign recognition only, limited to 5–8 validated static signs
-* Graceful degradation when optional services are unavailable
-* Minimal backend surface area
-* Demo-grade reliability under controlled conditions
-* Browser-native capabilities wherever possible
-* Clear separation between required and optional components
+- Client-side recognition for low latency and privacy
+- Isolated-sign recognition only, limited to 5–8 validated static signs
+- Graceful degradation when optional services are unavailable
+- Minimal backend surface area
+- Demo-grade reliability under controlled conditions
+- Browser-native capabilities wherever possible
+- Clear separation between required and optional components
 
 The architecture prioritizes simplicity, privacy, low infrastructure requirements, and reliable execution within the 24-hour hackathon constraint.
 
@@ -124,11 +124,11 @@ Only recognized information is exchanged between peers.
 
 The data channel carries:
 
-* Recognized sign text
-* Speech transcript text
-* Confidence information
-* Timestamps
-* Optional control messages
+- Recognized sign text
+- Speech transcript text
+- Confidence information
+- Timestamps
+- Optional control messages
 
 Raw video processing is not performed through the data channel.
 
@@ -138,18 +138,18 @@ Raw video processing is not performed through the data channel.
 
 The optional backend is responsible only for lightweight application functionality:
 
-* Room creation
-* Room joining
-* Practice progress
-* Badges
-* Leaderboard data
+- Room creation
+- Room joining
+- Practice progress
+- Badges
+- Leaderboard data
 
 The backend does **not** process:
 
-* Video
-* Audio
-* Webcam frames
-* Hand landmarks
+- Video
+- Audio
+- Webcam frames
+- Hand landmarks
 
 No long-lived backend connection is required for the core video and recognition experience.
 
@@ -292,9 +292,9 @@ The target sign is stored locally during the exercise.
 
 The result can optionally be persisted through the backend for:
 
-* Progress tracking
-* Badges
-* Leaderboard entries
+- Progress tracking
+- Badges
+- Leaderboard entries
 
 This avoids building a second recognition system specifically for practice mode.
 
@@ -551,8 +551,8 @@ Only recognized text and required control information are exchanged between peer
 
 When Gemini is used, only limited information should be sent:
 
-* Rounded landmark coordinates, or
-* A tightly cropped hand region
+- Rounded landmark coordinates, or
+- A tightly cropped hand region
 
 The full webcam frame should not be sent to Gemini.
 
@@ -560,9 +560,9 @@ The full webcam frame should not be sent to Gemini.
 
 The prototype does not persist:
 
-* Video recordings
-* Audio recordings
-* Raw webcam frames
+- Video recordings
+- Audio recordings
+- Raw webcam frames
 
 ### Backend
 
@@ -611,10 +611,10 @@ Higher Server Compute Cost
 
 The optional backend only handles lightweight application operations such as:
 
-* Room coordination
-* Progress
-* Badges
-* Leaderboard
+- Room coordination
+- Progress
+- Badges
+- Leaderboard
 
 For hackathon-scale usage, a lightweight Express backend with a free-tier database is sufficient.
 
@@ -630,15 +630,15 @@ The current architecture is intentionally designed for a hackathon prototype.
 
 A production system would require additional infrastructure, including:
 
-* Dedicated media infrastructure
-* Larger and continuously trained recognition models
-* Proper authentication
-* Multi-tenancy
-* Horizontal backend scaling
-* Stronger monitoring and observability
-* Formal model evaluation
-* Improved accessibility testing
-* More comprehensive privacy controls
+- Dedicated media infrastructure
+- Larger and continuously trained recognition models
+- Proper authentication
+- Multi-tenancy
+- Horizontal backend scaling
+- Stronger monitoring and observability
+- Formal model evaluation
+- Improved accessibility testing
+- More comprehensive privacy controls
 
 These requirements are explicitly outside the scope of the current 24-hour prototype.
 
@@ -665,15 +665,15 @@ Potential future extensions include:
 
 The architecture assumes:
 
-* Users have modern Chromium-based browsers.
-* Camera and microphone permissions are available.
-* The demonstration environment provides reasonable lighting.
-* The hand remains clearly visible to the camera.
-* Network conditions allow basic WebRTC connectivity.
-* TURN is available if direct peer-to-peer connectivity fails.
-* The supported vocabulary remains limited to 8 signs or fewer.
-* Gemini free-tier limits are acceptable because it is not part of the critical path.
-* The project remains a 1:1 communication prototype during the hackathon.
+- Users have modern Chromium-based browsers.
+- Camera and microphone permissions are available.
+- The demonstration environment provides reasonable lighting.
+- The hand remains clearly visible to the camera.
+- Network conditions allow basic WebRTC connectivity.
+- TURN is available if direct peer-to-peer connectivity fails.
+- The supported vocabulary remains limited to 8 signs or fewer.
+- Gemini free-tier limits are acceptable because it is not part of the critical path.
+- The project remains a 1:1 communication prototype during the hackathon.
 
 ---
 
@@ -695,11 +695,11 @@ The prototype therefore focuses on a small set of isolated static signs.
 
 Reasons:
 
-* Additional infrastructure
-* Higher latency
-* Increased cost
-* Privacy concerns
-* More complex deployment
+- Additional infrastructure
+- Higher latency
+- Increased cost
+- Privacy concerns
+- More complex deployment
 
 Client-side recognition is sufficient for the controlled prototype.
 
@@ -731,11 +731,11 @@ Supported Sign
 
 Reasons:
 
-* API dependency
-* Rate limits
-* Additional latency
-* Increased complexity
-* Potential cost
+- API dependency
+- Rate limits
+- Additional latency
+- Increased complexity
+- Potential cost
 
 Gemini is therefore used only as an optional, throttled fallback.
 
@@ -831,13 +831,13 @@ The architecture is intentionally conservative.
 
 It prioritizes:
 
-* Working functionality
-* Clear component boundaries
-* Client-side privacy
-* Low latency
-* Minimal infrastructure
-* Graceful failure
-* Easy debugging
-* Reliable hackathon demonstration
+- Working functionality
+- Clear component boundaries
+- Client-side privacy
+- Low latency
+- Minimal infrastructure
+- Graceful failure
+- Easy debugging
+- Reliable hackathon demonstration
 
 This makes the system achievable within a 24-hour build window while leaving clear extension points for future development.
